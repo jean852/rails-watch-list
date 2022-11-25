@@ -1,2 +1,17 @@
-<h1>Bookmarks#new</h1>
-<p>Find me in app/views/bookmarks/new.html.erb</p>
+<%= render "lists/banner" %>
+
+<div class="container">
+  <div class="d-flex justify-content-between mt-5">
+    <h3>Create a new list</h3>
+    <%= link_to "Cancel", lists_path, class: "btn btn-warning"%>
+  </div>
+  <div class="d-flex flex-wrap">
+
+    <%= simple_form_for [@list, @bookmark] do |l| %>
+      <%= l.association :movie %>
+      <%= l.input :comment %>
+      <%= l.button :submit, class:"btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>

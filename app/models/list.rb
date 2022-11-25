@@ -1,3 +1,4 @@
 class List < ApplicationRecord
-  has_many :bookmark, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :movies, through: :bookmarks
 end
