@@ -30,6 +30,6 @@ class ListsController < ApplicationController
   private
 
   def list_params
-    params.fetch(:list, {}).permit(:name)
+    params.fetch(:list, {}).permit(:name, :photo)
   end
 end
