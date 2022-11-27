@@ -9,15 +9,19 @@
     <div class="cards mt-5">
     <% @lists.each do |list| %>
       <% if list.photo.key %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
-          <%= link_to list.name, list_path(list) %>
-        </div>
+        <%= link_to list_path(list) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('<%= cl_image_path list.photo.key, height: 300,  crop: :thumb, gravity: :face %>')">
+            <h3> <%= list.name %></h3>
+          </div>
+        <% end %>
       <% else %>
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('...')">
-          <%= link_to list.name, list_path(list) %>
-        </div>
-      <% end %>
 
+        <%= link_to list_path(list) do %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('...')">
+            <h3> <%= list.name %></h3>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
